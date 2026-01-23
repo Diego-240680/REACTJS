@@ -1,6 +1,8 @@
+import Encabezado from "./encabezado";
 function App(){
   return  (
   <div>
+    <Encabezado />
   <h1>5A EVND</h1>
   <h2>Profesor: </h2>
   <h3>M.T.I Ricardo Luna Santos</h3>
