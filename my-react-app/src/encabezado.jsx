@@ -3,9 +3,10 @@ import instagram from './assets/instagram.png';
 import facebook from './assets/facebook.png';
 import x  from './assets/x.png';
 import youtube from './assets/youtube.png';
+import './Encabezado.css';
 function Encabezado() {
     return (
-        <div>
+        <div className='Encabezado'>
             <Logo />
             <Menu />
             <Redes/>
@@ -16,7 +17,7 @@ function Encabezado() {
 
 function Logo(){
     return (
-     <div>
+     <div className='Logo'>
         <img src={miLogo} alt="React Logo" />
     </div>
     )
@@ -39,7 +40,7 @@ function Menu(){
 function Redes(){
     return (
         
-     <div>
+     <div className='instagram'>
         <img src={instagram} alt="React instagram" />
         <img src={facebook} alt="React facebook" />
         <img src={x} alt="React x" />
