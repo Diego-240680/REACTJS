@@ -1,74 +1,44 @@
+import React from "react";
 import Encabezado from "./encabezado";
+import './App.css';
+import Card from './Card';
+import reactImg from './assets/react.svg';
+import miLogo from './assets/milogo.png';
+
 function App(){
-  return  (
-  <div>
-    <Encabezado />
-  <h1>5A EVND</h1>
-  <h2>Profesor: </h2>
-  <h3>M.T.I Ricardo Luna Santos</h3>
-  <h4>Diego</h4>
-  <UserComponent />
-  <ProfileComponent />
-  <FeedComponent />
-</div>
-)
-}
-
-function UserComponent(){
-  const nombre = 'Diego';
-  const apellidos = 'Aldana Olvera';
-  const nombrecompleto = <h2>El nombre es: {nombre} y sus apellidos {apellidos}</h2>;
-  return <h1>User Component {nombrecompleto}</h1>;
-}
-
-
-
-function ProfileComponent(){
-   const users = [
-    { id: 1, name:'Diego', role: 'Web Developer'},
-    { id: 2, name:'Andrea', role: 'Web Designer'},
-    { id: 3, name:'Pao', role: 'Web Leader'},
-  ]
   return (
-<>
-<p>Lista de usuarios del sistema</p>
-<ul>
-  {
-  users.map(function(user, index){
-    return (
-      <li key={index}>{user.name} es un {user.role}</li>
-    )
-  })
-}
-</ul>
-</>
+    <div className="app-root">
+      <Encabezado />
+      <main className="main-content">
+        <section className="cards-row">
+          <Card image={miLogo} title="Java">
+            lenguaje de programación de propósito general orientado a objetos y multiplataforma. Código compilado.
+          </Card>
+          <Card image={reactImg} title="Python">
+            lenguaje de programación de alto nivel, interpretado y de código abierto, famoso por su sintaxis clara.
+          </Card>
+          <Card image={reactImg} title="JavaScript">
+            JavaScript es un lenguaje de programación ligero, interpretado y orientado a objetos para páginas web.
+          </Card>
+          <Card image={miLogo} title="PHP">
+            lenguaje de código abierto muy popular, utilizado principalmente para desarrollo web del lado del servidor.
+          </Card>
+        </section>
+
+        <section className="promotions">
+          <div className="promo-inner">
+            <h2>Promociones</h2>
+            <p>Aprovecha nuestras ofertas exclusivas y promociones especiales diseñadas para brindarte el mejor valor.</p>
+          </div>
+        </section>
+      </main>
+
+      <footer className="site-footer">
+        <p>© 2024 Mi Aplicación React. Todos los derechos reservados.</p>
+      </footer>
+    </div>
   );
 }
 
-
-
-function FeedComponent(){
-   const users = [
-    { id: 1, name:'Pala', role: 'Material de construccion'},
-    { id: 2, name:'Martilol', role: 'Material de construccion'},
-    { id: 3, name:'Block', role: 'Material de Construccion'},
-    { id: 4, name:'Cemento', role: 'Material de Construccion'},
-  ]
-   return (
-<>
-<p>Material de construccion</p>
-<ul>
-  {
-  users.map(function(user, index){
-    return (
-      <li key={index}>{user.name} es un {user.role}</li>
-    )
-  })
-}
-</ul>
-</>
-  );
-}
-
-export default App
+export default App;
 

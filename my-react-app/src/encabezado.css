@@ -1,24 +1,70 @@
 h2{
     color: rgb(209, 70, 70);
 }
-h1{
-    color: black;
-}
+
 .Encabezado{
-    background-color: antiquewhite;
+    background: linear-gradient(180deg,#e18ad9,#c36bd3);
+    padding: 0.75rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+.Encabezado > *{
+    margin: 0.25rem 0;
+}
+.header-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.Logo{
+    display: inline-block;
+    vertical-align: middle;
 }
 .Logo img{
-    width: 100px;
+    width: 80px;
 }
-.instagram img{
-    width: 100px;
+nav{
+    text-align: center;
+    margin-top: 0.5rem;
 }
-.facebook img{
-    width: 100px;
+nav ul{
+    display: inline-flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0.35rem 0.75rem;
+    background: #000;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
-.x img{
-    width: 100px;
+nav ul li{
+    color: #fff;
+    padding: 0.25rem 0.6rem;
+    cursor: pointer;
 }
+nav ul li{
+    transition: background 180ms ease, color 180ms ease;
+}
+nav ul li:hover{
+    background: #ffffff;
+    color: #000000;
+    border-radius: 4px;
+}
+.instagram img,
+.facebook img,
+.x img,
 .youtube img{
-    width: 100px;
+    width: 28px;
+    margin-left: 0.45rem;
+}
+.instagram, .facebook, .x, .youtube{
+    display: inline-block;
+    vertical-align: middle;
+}
+.Encabezado .instagram{
+        float: right;
+}
+
+@media (max-width: 900px){
+    .header-top{flex-direction:column;align-items:flex-start;gap:8px}
+    nav ul{display:flex;flex-wrap:wrap;justify-content:center}
 }

@@ -1,8 +1,9 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -39,4 +40,42 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.main-content{
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
+.cards-row{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+  width: 100%;
+}
+.promotions{
+  background: linear-gradient(90deg,#c91b5a,#0b63b6);
+  color: #fff;
+  padding: 1.25rem 0;
+  margin-top: 1rem;
+}
+.promotions .promo-inner{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.site-footer{
+  margin-top: 1.5rem;
+  padding: 0.75rem 0;
+  background: #111;
+  color: #eee;
+  width: 100%;
+}
+
+@media (max-width: 900px){
+  .cards-row{grid-template-columns: repeat(2,1fr);} 
+}
+@media (max-width: 520px){
+  .cards-row{grid-template-columns: 1fr;}
 }

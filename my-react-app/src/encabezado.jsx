@@ -3,15 +3,17 @@ import instagram from './assets/instagram.png';
 import facebook from './assets/facebook.png';
 import x  from './assets/x.png';
 import youtube from './assets/youtube.png';
-import './Encabezado.css';
+import './encabezado.css';
 function Encabezado() {
     return (
         <div className='Encabezado'>
-            <Logo />
-            <Menu />
-            <Redes/>
-        <h2>Bienvenido a mi sitio</h2>
-    </div>
+            <div className="header-top">
+                <Logo />
+                <Menu />
+                <Redes/>
+            </div>
+            <h2>Bienvenido a mi sitio</h2>
+        </div>
     );
 }
 
