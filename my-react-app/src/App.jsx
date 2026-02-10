@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ContenedorTarjeta from "./ContenedorTarjeta";
-import Encabezado from "./Encabezado";
+import Encabezado from "./encabezado";
 import Pie from "./Pie";
 import Promociones from "./Promociones";
 import './App.css';

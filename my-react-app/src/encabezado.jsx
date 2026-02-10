@@ -1,9 +1,8 @@
-import miLogo from './assets/milogo.png' ;
-import facebook from './assets/facebook.png' ;
-import instagram from './assets/instagram.png' ;
-import linkedin from './assets/linkedin.png' ;
-import whatsapp from './assets/whatsapp.png' ;
-import tiktok from './assets/tik-tok.png' ;
+import miLogo from './assets/milogo.png';
+import facebook from './assets/facebook.png';
+import instagram from './assets/instagram.png';
+import x from './assets/x.png';
+
 import './encabezado.css';
 
 function Encabezado({ menuItems = defaultMenuItems, onMenuClick, currentPage }) {

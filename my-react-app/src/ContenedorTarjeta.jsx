@@ -1,6 +1,5 @@
 import './ContenedorTarjeta.css';     
-import tarjeta1 from './assets/milogo.png';
-
+import 
 function ContenedorTarjeta(){
     return(
         <div className="ContenedorTarjeta">
