@@ -1,0 +1,38 @@
+.ContenedorTarjeta{
+    margin: 0 auto;
+    width: 90%;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+.Tarjeta {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 200px;
+}
+.Tarjeta img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+.Tarjeta h3 {
+    margin: 8px 0;
+}
+.Tarjeta p {
+    margin: 8px 0;
+}
+.Tarjeta a {
+    color: blue;
+    text-decoration: none;
+}
+.Tarjeta a:hover {
+    text-decoration: underline;
+}

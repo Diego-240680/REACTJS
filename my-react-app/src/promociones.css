@@ -1,0 +1,96 @@
+.promociones {
+  background: linear-gradient(80deg, #7d7d87 100%);
+  color: rgb(16, 16, 16);
+  padding: 50px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 30px 0;
+}
+
+.promociones-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.promociones h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0 0 20px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.promociones p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 30px 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.promociones-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 30px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: rgb(0, 0, 0);
+  color: #2196F3;
+}
+
+.btn-primary:hover {
+  background-color: #0c0c0c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: rgb(6, 6, 6);
+  border: 2px solid rgb(0, 0, 0);
+}
+
+.btn-secondary:hover {
+  background-color: rgb(0, 0, 0);
+  color: #2196F3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .promociones {
+    padding: 30px 15px;
+  }
+
+  .promociones h2 {
+    font-size: 24px;
+  }
+
+  .promociones p {
+    font-size: 14px;
+  }
+
+  .promociones-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}

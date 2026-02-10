@@ -1,0 +1,57 @@
+.pie {
+  background: linear-gradient(90deg, #282727);
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: auto;
+}
+
+.pie-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pie-content p {
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.pie-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.pie-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  transition: opacity 0.3s ease;
+}
+
+.pie-links a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .pie {
+    padding: 20px 15px;
+  }
+
+  .pie-links {
+    gap: 15px;
+  }
+
+  .pie-content p {
+    font-size: 12px;
+  }
+
+  .pie-links a {
+    font-size: 11px;
+  }
+}

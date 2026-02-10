@@ -1,44 +1,115 @@
-import React from "react";
-import Encabezado from "./encabezado";
+import { useState } from 'react';
+import ContenedorTarjeta from "./ContenedorTarjeta";
+import Encabezado from "./Encabezado";
+import Pie from "./Pie";
+import Promociones from "./Promociones";
 import './App.css';
-import Card from './Card';
-import reactImg from './assets/react.svg';
-import miLogo from './assets/milogo.png';
 
 function App(){
-  return (
-    <div className="app-root">
-      <Encabezado />
-      <main className="main-content">
-        <section className="cards-row">
-          <Card image={miLogo} title="Java">
-            lenguaje de programación de propósito general orientado a objetos y multiplataforma. Código compilado.
-          </Card>
-          <Card image={reactImg} title="Python">
-            lenguaje de programación de alto nivel, interpretado y de código abierto, famoso por su sintaxis clara.
-          </Card>
-          <Card image={reactImg} title="JavaScript">
-            JavaScript es un lenguaje de programación ligero, interpretado y orientado a objetos para páginas web.
-          </Card>
-          <Card image={miLogo} title="PHP">
-            lenguaje de código abierto muy popular, utilizado principalmente para desarrollo web del lado del servidor.
-          </Card>
-        </section>
+  const [currentPage, setCurrentPage] = useState('inicio');
 
-        <section className="promotions">
-          <div className="promo-inner">
-            <h2>Promociones</h2>
-            <p>Aprovecha nuestras ofertas exclusivas y promociones especiales diseñadas para brindarte el mejor valor.</p>
-          </div>
-        </section>
-      </main>
+  const menuItems = [
+    { label: 'Inicio', href: 'inicio' },
+    { label: 'Acerca de', href: 'acerca' },
+    { label: 'Productos', href: 'productos' },
+    { label: 'Contacto', href: 'contacto' },
+    { label: 'Sucursales', href: 'sucursales' },
+    { label: 'Galerias', href: 'galerias' }
+  ];
 
-      <footer className="site-footer">
-        <p>© 2024 Mi Aplicación React. Todos los derechos reservados.</p>
-      </footer>
+  const renderPage = () => {
+    switch(currentPage) {
+      case 'inicio':
+        return (
+          <>
+            <ContenedorTarjeta />
+            <Promociones />
+          </>
+        );
+      case 'acerca':
+        return <div className="page-content"><h2>Acerca de Nosotros</h2><p>Contenido sobre la empresa...</p></div>;
+      case 'productos':
+        return <div className="page-content"><h2>Productos</h2><p>Catálogo de productos...</p></div>;
+      case 'contacto':
+        return <div className="page-content"><h2>Contacto</h2><p>Información de contacto...</p></div>;
+      case 'sucursales':
+        return <div className="page-content"><h2>Sucursales</h2><p>Ubicación de nuestras sucursales...</p></div>;
+      case 'galerias':
+        return <div className="page-content"><h2>Galerías</h2><p>Galería de fotos...</p></div>;
+      default:
+        return <ContenedorTarjeta />;
+    }
+  };
+
+  return ( 
+    <div className="app-container"> 
+      <div className="app-content">
+        <Encabezado menuItems={menuItems} onMenuClick={setCurrentPage} currentPage={currentPage} />
+        {renderPage()}
+      </div>
+      <Pie />
     </div>
+   
+  ) 
+}
+
+function UserComponent(){
+  
+  const nombre = 'Andrea';
+  const apellidos = 'Rodriguez Morales';
+  const nombrecompleto = <h2>El nombre es: {nombre} y sus apellidos {apellidos}</h2>;
+  return <h1>User Component {nombrecompleto}</h1>;
+}
+
+function ProfileComponent(){
+  const users = [
+    {id: 1, name: 'Andrea', role: 'Web Developer'},
+    {id: 2, name: 'Diego', role: 'Web Designer'},
+    {id: 3, name: 'Paola', role: 'Team Leader'},]
+  return (
+    <>
+    <p>Lista de usuarios del sistema</p>
+    <ul>
+      {
+      users.map (function(user,index) {
+        return (
+          <li key={index}>{user.name} es un {user.role}</li>
+        )
+      })
+    }
+    </ul>
+    </>
+
   );
 }
 
-export default App;
+function FeedComponent(){
+  const users=[
+    {id:1, name:'pala', role:'Materiales de construcción'},
+    {id:2, name:'martillo', role:'Herramientas de construcción'},
+    {id:3, name:'cemento', role:'Materiales de construcción'},
+    {id:4, name:'ladrillo', role:'Materiales de construcción'},
+    {id:5, name:'nivel', role:'Herramientas de construcción'},
+  ]
+   return (
+    <>
+    <p>Lista de materiales del sistema</p>
+    <ul>
+      {
+      users.map (function(user,index) {
+        return (
+          <li key={index}>{user.name} es un {user.role}</li>
+        )
+      })
+    }
+    </ul>
+    </>
 
+  );
+}
+
+ 
+  
+
+
+export default App
