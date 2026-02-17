@@ -1,32 +1,34 @@
 import miLogo from './assets/milogo.png';
 import facebook from './assets/facebook.png';
-import instagram from './assets/instagram.png';
-import x from './assets/x.png';
-
+import instagram from './assets/instagram.png'; 
+import whatsapp from './assets/whatsapp.png'; 
+import tiktok from './assets/tiktok.png'; 
 import './encabezado.css';
+import Clima from './Clima';
 
 function Encabezado({ menuItems = defaultMenuItems, onMenuClick, currentPage }) {
-  return (
-    <div className="encabezado">
-        <Logo />
-        <Menu items={menuItems} onMenuClick={onMenuClick} currentPage={currentPage} />
-        <div className="right-section">
-            <h2></h2>
-            <Redes />
+    return (
+        <div className="encabezado">
+            <Logo />
+            <Menu items={menuItems} onMenuClick={onMenuClick} currentPage={currentPage} />
+            <div className="right-section">
+                <h2></h2>
+                <Redes />
+            </div>
         </div>
-    </div>
-  );
+    );
 }
 
 const defaultMenuItems = [
-  { label: 'Inicio', href: 'inicio' },
-  { label: 'Acerca de', href: 'acerca' },
-  { label: 'Productos', href: 'productos' },
-  { label: 'Contacto', href: 'contacto' },
-  { label: 'Sucursales', href: 'sucursales' },
-  { label: 'Galerias', href: 'galerias' }
+    { label: 'Inicio', href: 'inicio' },
+    { label: 'Acerca de', href: 'acerca' },
+    { label: 'Productos', href: 'productos' },
+    { label: 'Contacto', href: 'contacto' },
+    { label: 'Sucursales', href: 'sucursales' },
+    { label: 'Galerías', href: 'galerias' }
 ];
-function Logo(){
+
+function Logo() {
     return (
         <div className="logoDiv">
             <img src={miLogo} alt="React logo" />
@@ -34,7 +36,7 @@ function Logo(){
     );
 }
 
-function Menu({ items, onMenuClick, currentPage }){
+function Menu({ items, onMenuClick, currentPage }) {
     return (
         <div className="menuDiv">
             <ul>
@@ -59,21 +61,20 @@ function Menu({ items, onMenuClick, currentPage }){
             </ul>
         </div>
     );
-
 }
 
-function Redes(){
+function Redes() {
     return (
-        <div className= "redesDiv">
+        <div className="redesDiv">
             <ul>
                 <li><img src={facebook} alt="Facebook" /></li>
                 <li><img src={instagram} alt="Instagram" /></li>
-                <li><img src={linkedin} alt="Linkedin" /></li>
                 <li><img src={whatsapp} alt="Whatsapp" /></li>
-                <li><img src={tiktok} alt="Tiktok" />  
-                </li>
+                <li><img src={tiktok} alt="Tiktok" /></li>
             </ul>
+            <Clima />
         </div>
     );
 }
-export default Encabezado; 
+
+export default Encabezado;
