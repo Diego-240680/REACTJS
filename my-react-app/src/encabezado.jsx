@@ -25,7 +25,8 @@ const defaultMenuItems = [
     { label: 'Productos', href: 'productos' },
     { label: 'Contacto', href: 'contacto' },
     { label: 'Sucursales', href: 'sucursales' },
-    { label: 'Galerías', href: 'galerias' }
+    { label: 'Galerías', href: 'galerias' },
+    { label: 'Usuarios', href: 'usuarios' },
 ];
 
 function Logo() {

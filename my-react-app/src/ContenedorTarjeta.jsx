@@ -18,10 +18,10 @@ function Tarjeta({ img, alt, title, desc }) {
 function ContenedorTarjeta() {
     return (
         <div className="ContenedorTarjeta">
-            <Tarjeta img={tarjeta1} alt="Tarjeta 1" title="Documental" desc="La fotografía documental tiene la capacidad para detener lo efímero, para convertir lo cotidiano en historia y para recordarnos que la realidad, aunque cambie, puede seguir viva en una imagen." />
-            <Tarjeta img={tarjeta2} alt="Tarjeta 2" title="Cultural" desc="La fotografía cultural o etnográfica refleja tradiciones, arquitectura y forma de vida." />
-            <Tarjeta img={tarjeta3} alt="Tarjeta 3" title="Authenticity" desc="Buscamos mostrar lo real, lo humano." />
-            <Tarjeta img={tarjeta4} alt="Tarjeta 4" title="El ritual cotidiano" desc="La rutina también cuenta historias." />
+            <Tarjeta img={tarjeta1} alt="Tarjeta 1" title="Documental" desc="agregar info" />
+            <Tarjeta img={tarjeta2} alt="Tarjeta 2" title="Cultural" desc="agregar info" />
+            <Tarjeta img={tarjeta3} alt="Tarjeta 3" title="Authenticity" desc="agregar info" />
+            <Tarjeta img={tarjeta4} alt="Tarjeta 4" title="El ritual cotidiano" desc="agregar info" />
         </div>
     );
 }

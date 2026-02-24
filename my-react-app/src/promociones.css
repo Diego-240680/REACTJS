@@ -1,5 +1,5 @@
 .promociones {
-  background: linear-gradient(80deg, #7d7d87 100%);
+  background: linear-gradient(80deg, #0084ff 100%);
   color: rgb(16, 16, 16);
   padding: 50px 20px;
   width: 100%;
@@ -17,7 +17,7 @@
   font-size: 32px;
   font-weight: bold;
   margin: 0 0 20px 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 4px rgba(0, 132, 255, 0.719);
 }
 
 .promociones p {

@@ -1,0 +1,121 @@
+.usuariosDiv {
+    padding: 20px;
+    background: #f5f5f5;
+    min-height: 100vh;
+}
+
+.usuariosDiv h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 28px;
+}
+
+.cargando {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: #666;
+}
+
+.formulario {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.formulario input {
+    flex: 1;
+    min-width: 150px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.formulario button {
+    padding: 10px 25px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.tabla-contenedor {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow-x: auto;
+}
+
+.tabla-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.tabla-usuarios th, .tabla-usuarios td {
+    padding: 12px;
+    border: 1px solid #dee2e6;
+    text-align: left;
+}
+
+.tabla-usuarios th {
+    background-color: #f8f9fa;
+}
+
+.acciones {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.btn-editar, .btn-eliminar {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.btn-editar {
+    background: #ffc107;
+    color: white;
+}
+
+.btn-editar:hover {
+    background: #e0a800;
+}
+
+.btn-eliminar {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-eliminar:hover {
+    background: #c82333;
+}
+
+@media (max-width: 768px) {
+    .tabla-contenedor {
+        overflow-x: auto;
+    }
+    
+    .tabla-usuarios {
+        font-size: 11px;
+    }
+    
+    .tabla-usuarios th,
+    .tabla-usuarios td {
+        padding: 8px;
+    }
+}
