@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"; 
 import "./Productos.css";
+import RegistrarProducto from "./registrarProducto";
 
 
 function Productos () {
@@ -25,6 +26,7 @@ function Productos () {
        
     return (
         <div className="productosDiv">
+            <RegistrarProducto />
             <h1>Productos disponibles</h1>
             {productos.map((producto) => (
                 <div key={producto.id}>
