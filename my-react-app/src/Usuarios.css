@@ -1,121 +1,328 @@
-.usuariosDiv {
-    padding: 20px;
-    background: #f5f5f5;
-    min-height: 100vh;
+.usuarios-contenedor {
+  padding: 40px 32px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+  overflow-x: auto;
+  box-sizing: border-box;
 }
 
-.usuariosDiv h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333;
-    font-size: 28px;
+.usuarios-contenedor h2 {
+  font-size: 32px;
+  margin: 0 0 30px;
+  color: #1a1a1a;
+  font-weight: 700;
+  text-align: center;
 }
 
-.cargando {
-    text-align: center;
-    padding: 20px;
-    font-size: 18px;
-    color: #666;
+.controles {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  justify-content: flex-end;
 }
 
-.formulario {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.btn-agregar {
+  background: linear-gradient(135deg, #3593ff 0%, #2a8af8 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.formulario input {
-    flex: 1;
-    min-width: 150px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
+.btn-agregar:hover {
+  background: linear-gradient(135deg, #2a9bf8 0%, #2a9bf8 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
 }
 
-.formulario button {
-    padding: 10px 25px;
-    background: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
+.btn-importar {
+  background: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid #d0d0d0;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
 }
 
-.tabla-contenedor {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    overflow-x: auto;
+.btn-importar:hover {
+  background: #f7f7f7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.formulario-usuario {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.formulario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.formulario-usuario input {
+  padding: 12px 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.formulario-usuario input:focus {
+  outline: none;
+  border-color: #35a4ff;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+  background-color: #fff;
+}
+
+.botones-formulario {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.btn-guardar {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-guardar:hover {
+  background: linear-gradient(135deg, #45a049 0%, #3d8b40 100%);
+  transform: translateY(-2px);
+}
+
+.btn-cancelar {
+  background: #e0e0e0;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-cancelar:hover {
+  background: #d0d0d0;
+  transform: translateY(-2px);
+}
+
+.tabla-responsiva {
+  width: 100%;
+  overflow-x: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .tabla-usuarios {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
 }
 
-.tabla-usuarios th, .tabla-usuarios td {
-    padding: 12px;
-    border: 1px solid #dee2e6;
-    text-align: left;
+.tabla-usuarios thead {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .tabla-usuarios th {
-    background-color: #f8f9fa;
+  padding: 16px 12px;
+  text-align: left;
+  border-bottom: 2px solid #35a4ff;
+}
+
+.tabla-usuarios tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.tabla-usuarios tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.tabla-usuarios td {
+  padding: 14px 12px;
+  color: #333;
+}
+
+.password-celda {
+  font-weight: 600;
+  letter-spacing: 2px;
 }
 
 .acciones {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
+  display: flex;
+  gap: 8px;
 }
 
-.btn-editar, .btn-eliminar {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: bold;
+.btn-editar,
+.btn-eliminar {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-editar {
-    background: #ffc107;
-    color: white;
+  background: #FFD700;
+  color: #1a1a1a;
+  border: 1px solid #FFC700;
 }
 
 .btn-editar:hover {
-    background: #e0a800;
+  background: #FFC700;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
 }
 
 .btn-eliminar {
-    background: #dc3545;
-    color: white;
+  background: #ff4444;
+  color: white;
+  border: 1px solid #e63333;
 }
 
 .btn-eliminar:hover {
-    background: #c82333;
+  background: #e63333;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
+}
+
+.sin-datos {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 30px !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .usuarios-contenedor {
+    padding: 30px 20px;
+  }
+
+  .formulario-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+  }
+
+  .tabla-usuarios th,
+  .tabla-usuarios td {
+    padding: 12px 8px;
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 768px) {
-    .tabla-contenedor {
-        overflow-x: auto;
-    }
-    
-    .tabla-usuarios {
-        font-size: 11px;
-    }
-    
-    .tabla-usuarios th,
-    .tabla-usuarios td {
-        padding: 8px;
-    }
+  .usuarios-contenedor {
+    padding: 20px 16px;
+  }
+
+  .usuarios-contenedor h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .formulario-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tabla-usuarios {
+    font-size: 12px;
+  }
+
+  .tabla-usuarios th,
+  .tabla-usuarios td {
+    padding: 10px 6px;
+  }
+
+  .btn-editar,
+  .btn-eliminar {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+
+  .acciones {
+    gap: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .usuarios-contenedor {
+    padding: 16px 12px;
+  }
+
+  .usuarios-contenedor h2 {
+    font-size: 20px;
+  }
+
+  .tabla-responsive {
+    overflow-x: auto;
+  }
+
+  .tabla-usuarios {
+    font-size: 11px;
+    min-width: 600px;
+  }
+
+  .tabla-usuarios th,
+  .tabla-usuarios td {
+    padding: 8px 4px;
+  }
+
+  .btn-editar,
+  .btn-eliminar {
+    width: 32px;
+    height: 32px;
+    font-size: 11px;
+  }
+
+  .controles {
+    justify-content: center;
+  }
+
+  .botones-formulario {
+    flex-wrap: wrap;
+  }
 }

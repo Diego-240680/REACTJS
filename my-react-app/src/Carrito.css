@@ -1,0 +1,68 @@
+.carrito-contenedor {
+  padding: 40px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.carrito-contenedor h2 {
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+
+.cards {
+  display: flex;
+  flex-direction: row;        
+  gap: 20px;                  
+  flex-wrap: wrap;            
+}
+
+
+.card {
+  width: 300px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.numero {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.fecha {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.titulo {
+  color: #1e88e5;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.card ul {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.card li {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.btn-comprar {
+  background: #5393e7;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-comprar:hover {
+  opacity: 0.9;
+}

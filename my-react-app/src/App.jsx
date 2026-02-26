@@ -5,6 +5,7 @@ import Pie from "./Pie";
 import Promociones from "./Promociones";
 import Productos from "./Productos";
 import Usuarios from "./Usuarios"; 
+import Carrito from "./Carrito";
 import './App.css';
 
 function App(){
@@ -17,7 +18,9 @@ function App(){
     { label: 'Contacto', href: 'contacto' },
     { label: 'Sucursales', href: 'sucursales' },
     { label: 'Galerias', href: 'galerias' },
-    { label: 'Usuarios', href: 'usuarios' }
+    { label: 'Usuarios', href: 'usuarios' },
+    { label: 'Carrito', href: 'carrito' },
+  
   ];
 
   const renderPage = () => {
@@ -41,6 +44,8 @@ function App(){
         return <div className="page-content"><h2>Galerías</h2><p>Galería de fotos...</p></div>;
       case 'usuarios':
         return <Usuarios />;
+      case 'carrito':
+        return <Carrito />;
       default:
         return <ContenedorTarjeta />;
     }
