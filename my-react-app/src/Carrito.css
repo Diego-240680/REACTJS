@@ -66,3 +66,16 @@
 .btn-comprar:hover {
   opacity: 0.9;
 }
+
+.btn-eliminar {
+  background: #e60000;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-eliminar:hover {
+  opacity: 0.9;
+}

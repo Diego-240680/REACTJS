@@ -48,3 +48,62 @@
     font-size: 20px;
     font-weight: bold;
 }
+
+
+.productosDiv div div {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+    justify-content: center; 
+}
+
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px; 
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+button:first-child {
+    background-color: #007bff; 
+    color: white;
+}
+
+button:first-child:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+}
+
+
+button:last-child {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+button:last-child:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(220, 53, 69, 0.3);
+}
+
+
+button:active {
+    transform: translateY(0);
+}
+
+
+img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 5px;
+    display: block;
+    margin: 10px auto;
+}

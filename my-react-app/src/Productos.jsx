@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import "./Productos.css";
 import RegistrarProducto from "./registrarProducto";
 
-
 function Productos () {
     const [productos, setProductos] = useState([]);
     const [cargando, setCargando] = useState(true);
@@ -21,18 +20,34 @@ function Productos () {
         };
         obtenerProductos();
     }, []);
+
+    // Funciones para los botones
+    const manejarAgregar = (id) => {
+        console.log("Producto agregado:", id);
+    };
+
+    const manejarEliminar = (id) => {
+        setProductos(productos.filter(p => p.id !== id));
+    };
     
     if (cargando) return <p>Cargando productos...</p>;
-       
+        
     return (
         <div className="productosDiv">
+             <h1>Productos disponibles</h1>
             <RegistrarProducto />
-            <h1>Productos disponibles</h1>
+           
             {productos.map((producto) => (
                 <div key={producto.id}>
                     <p>{producto.title}</p>
                     <p>${producto.price}</p>
                     <img src={producto.image} alt={producto.title} />
+                    
+                    {/* Botones añadidos manteniendo el orden */}
+                    <div>
+                        <button onClick={() => manejarAgregar(producto.id)}>Agregar</button>
+                        <button onClick={() => manejarEliminar(producto.id)}>Eliminar</button>
+                    </div>
                 </div>
             ))}
         </div> 

@@ -47,6 +47,10 @@ function Carrito() {
               Comprar
             </button>
 
+             <button className="btn-eliminar">
+              Eliminar
+            </button>
+
           </div>
         ))}
       </div>

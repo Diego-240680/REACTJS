@@ -1,18 +1,15 @@
 import React, { useState } from "react";
-import "./RegistrarUsuario.css";        // copia/ajusta el CSS más abajo
+import "./RegistrarUsuario.css";
 
 function RegistrarUsuario({ onGuardar, onCancelar, usuarioInicial }) {
-    const [form, setForm] = useState(
-        usuarioInicial || {
-            nombre: "",
-            apellidos: "",
-            direccion: "",
-            telefono: "",
-            correo: "",
-            username: "",
-            password: ""
-        }
-    );
+    
+    const estadoLimpio = {
+        username: "",
+        correo: "",
+        password: ""
+    };
+
+    const [form, setForm] = useState(usuarioInicial || estadoLimpio);
 
     const manejarCambio = (e) => {
         const { name, value } = e.target;
@@ -22,15 +19,7 @@ function RegistrarUsuario({ onGuardar, onCancelar, usuarioInicial }) {
     const manejarSubmit = (e) => {
         e.preventDefault();
         if (onGuardar) onGuardar(form);
-        setForm({
-            nombre: "",
-            apellidos: "",
-            direccion: "",
-            telefono: "",
-            correo: "",
-            username: "",
-            password: ""
-        });
+        setForm(estadoLimpio); 
     };
 
     return (
@@ -40,66 +29,7 @@ function RegistrarUsuario({ onGuardar, onCancelar, usuarioInicial }) {
                     {usuarioInicial ? "Editar usuario" : "Registrar Usuario"}
                 </h1>
 
-                <div className="rp-row">
-                    <label htmlFor="nombre">Nombre</label>
-                    <input
-                        id="nombre"
-                        name="nombre"
-                        type="text"
-                        value={form.nombre}
-                        onChange={manejarCambio}
-                        required
-                    />
-                </div>
-
-                <div className="rp-row">
-                    <label htmlFor="apellidos">Apellidos</label>
-                    <input
-                        id="apellidos"
-                        name="apellidos"
-                        type="text"
-                        value={form.apellidos}
-                        onChange={manejarCambio}
-                        required
-                    />
-                </div>
-
-                <div className="rp-row">
-                    <label htmlFor="direccion">Dirección</label>
-                    <input
-                        id="direccion"
-                        name="direccion"
-                        type="text"
-                        value={form.direccion}
-                        onChange={manejarCambio}
-                        required
-                    />
-                </div>
-
-                <div className="rp-row">
-                    <label htmlFor="telefono">Teléfono</label>
-                    <input
-                        id="telefono"
-                        name="telefono"
-                        type="tel"
-                        value={form.telefono}
-                        onChange={manejarCambio}
-                        required
-                    />
-                </div>
-
-                <div className="rp-row">
-                    <label htmlFor="correo">Correo</label>
-                    <input
-                        id="correo"
-                        name="correo"
-                        type="email"
-                        value={form.correo}
-                        onChange={manejarCambio}
-                        required
-                    />
-                </div>
-
+                {/* Campo: Username */}
                 <div className="rp-row">
                     <label htmlFor="username">Username</label>
                     <input
@@ -108,18 +38,35 @@ function RegistrarUsuario({ onGuardar, onCancelar, usuarioInicial }) {
                         type="text"
                         value={form.username}
                         onChange={manejarCambio}
+                        placeholder="Tu nombre de usuario"
                         required
                     />
                 </div>
 
+                {/* Campo: Correo */}
                 <div className="rp-row">
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="correo">Correo</label>
+                    <input
+                        id="correo"
+                        name="correo"
+                        type="email"
+                        value={form.correo}
+                        onChange={manejarCambio}
+                        placeholder="ejemplo@correo.com"
+                        required
+                    />
+                </div>
+
+                {/* Campo: Password */}
+                <div className="rp-row">
+                    <label htmlFor="password">Contraseña</label>
                     <input
                         id="password"
                         name="password"
                         type="password"
                         value={form.password}
                         onChange={manejarCambio}
+                        placeholder="••••••••"
                         required
                     />
                 </div>
@@ -132,15 +79,7 @@ function RegistrarUsuario({ onGuardar, onCancelar, usuarioInicial }) {
                         type="button"
                         className="btn btn-secondary"
                         onClick={() => {
-                            setForm({
-                                nombre: "",
-                                apellidos: "",
-                                direccion: "",
-                                telefono: "",
-                                correo: "",
-                                username: "",
-                                password: ""
-                            });
+                            setForm(estadoLimpio);
                             if (onCancelar) onCancelar();
                         }}
                     >

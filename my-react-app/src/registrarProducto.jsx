@@ -5,7 +5,9 @@ function RegistrarProducto() {
     const [form, setForm] = useState({
         nombre: "",
         precio: "",
-        descripcion: ""
+        categoria: "", 
+        descripcion: "",
+        imagen: "" 
     });
 
     const manejarCambio = (e) => {
@@ -15,9 +17,9 @@ function RegistrarProducto() {
 
     const manejarSubmit = (e) => {
         e.preventDefault();
-        // Aquí enviarías `form` al backend o lo manejarías como necesites
         console.log("Producto registrado:", form);
-        setForm({ nombre: "", precio: "", descripcion: "" });
+        
+        setForm({ nombre: "", precio: "", categoria: "", descripcion: "", imagen: "" });
     };
 
     return (
@@ -53,6 +55,19 @@ function RegistrarProducto() {
                             required
                         />
                     </div>
+                    {/* Apartado de Categoría añadido en la misma fila */}
+                    <div>
+                        <label htmlFor="categoria">Categoría</label>
+                        <input
+                            id="categoria"
+                            name="categoria"
+                            type="text"
+                            value={form.categoria}
+                            onChange={manejarCambio}
+                            placeholder="Ej. Electrónica"
+                            required
+                        />
+                    </div>
                 </div>
 
                 <div className="rp-row">
@@ -67,12 +82,26 @@ function RegistrarProducto() {
                     />
                 </div>
 
+                {/* Apartado de Imagen añadido debajo de descripción */}
+                <div className="rp-row">
+                    <label htmlFor="imagen">URL de la imagen</label>
+                    <input
+                        id="imagen"
+                        name="imagen"
+                        type="url"
+                        value={form.imagen}
+                        onChange={manejarCambio}
+                        placeholder="https://ejemplo.com/imagen.jpg"
+                        required
+                    />
+                </div>
+
                 <div className="rp-actions">
                     <button type="submit" className="btn btn-primary">Registrar</button>
                     <button
                         type="button"
                         className="btn btn-secondary"
-                        onClick={() => setForm({ nombre: "", precio: "", descripcion: "" })}
+                        onClick={() => setForm({ nombre: "", precio: "", categoria: "", descripcion: "", imagen: "" })}
                     >
                         Limpiar
                     </button>
