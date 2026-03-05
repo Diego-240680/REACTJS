@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ContenedorTarjeta from "./ContenedorTarjeta";
 import Encabezado from "./encabezado";
 import Pie from "./Pie";
@@ -6,10 +6,13 @@ import Promociones from "./Promociones";
 import Productos from "./Productos";
 import Usuarios from "./Usuarios"; 
 import Carrito from "./Carrito";
+// 1. Importamos el nuevo componente Login
+import Login from "./Login"; 
 import './App.css';
 
 function App(){
-  const [currentPage, setCurrentPage] = useState('inicio');
+  // 2. Cambiamos el estado inicial de 'inicio' a 'login'
+  const [currentPage, setCurrentPage] = useState('login');
 
   const menuItems = [
     { label: 'Inicio', href: 'inicio' },
@@ -20,11 +23,14 @@ function App(){
     { label: 'Galerias', href: 'galerias' },
     { label: 'Usuarios', href: 'usuarios' },
     { label: 'Carrito', href: 'carrito' },
-  
+    { label: 'Login', href: 'login' },
   ];
 
   const renderPage = () => {
     switch(currentPage) {
+      // 3. Agregamos el caso 'login' en el renderizado
+      case 'login':
+        return <Login />;
       case 'inicio':
         return (
           <>
@@ -59,8 +65,7 @@ function App(){
       </div>
       <Pie />
     </div>
-   
-  ) 
+  );
 }
 
 export default App;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./RegistrarUsuario.css";
 
 function RegistrarUsuario({ onGuardar, onCancelar, usuarioInicial }) {
