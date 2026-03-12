@@ -6,16 +6,18 @@ import Promociones from "./Promociones";
 import Productos from "./Productos";
 import Usuarios from "./Usuarios"; 
 import Carrito from "./Carrito";
-// 1. Importamos el nuevo componente Login
 import Login from "./Login"; 
+// 1. IMPORTAR EL NUEVO COMPONENTE
+import Categorias from "./Categorias"; 
 import './App.css';
 
 function App(){
-  // 2. Cambiamos el estado inicial de 'inicio' a 'login'
   const [currentPage, setCurrentPage] = useState('login');
 
   const menuItems = [
     { label: 'Inicio', href: 'inicio' },
+    // 2. AÑADIR A LA LISTA DEL MENÚ
+    { label: 'Categorías', href: 'categorias' }, 
     { label: 'Acerca de', href: 'acerca' },
     { label: 'Productos', href: 'productos' },
     { label: 'Contacto', href: 'contacto' },
@@ -28,7 +30,6 @@ function App(){
 
   const renderPage = () => {
     switch(currentPage) {
-      // 3. Agregamos el caso 'login' en el renderizado
       case 'login':
         return <Login />;
       case 'inicio':
@@ -38,6 +39,9 @@ function App(){
             <Promociones />
           </>
         );
+      // 3. AGREGAR EL CASO 'categorias' PARA EL RENDERIZADO
+      case 'categorias':
+        return <Categorias />;
       case 'acerca':
         return <div className="page-content"><h2>Acerca de Nosotros</h2><p>Contenido sobre la empresa...</p></div>;
       case 'productos':
