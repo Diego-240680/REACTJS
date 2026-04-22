@@ -1,37 +1,64 @@
-import { useState } from "react";
-import ContenedorTarjeta from "./ContenedorTarjeta";
-import Encabezado from "./encabezado";
-import Pie from "./Pie";
-import Promociones from "./Promociones";
-import Productos from "./Productos";
-import Usuarios from "./Usuarios"; 
-import Carrito from "./Carrito";
-import Login from "./Login"; 
-// 1. IMPORTAR EL NUEVO COMPONENTE
-import Categorias from "./Categorias"; 
+import { useEffect, useState } from 'react';
+import ContenedorTarjeta from './ContenedorTarjeta';
+import Encabezado from './encabezado';
+import Pie from './Pie';
+import Promociones from './Promociones';
+import Productos from './Productos';
+import Usuarios from './Usuarios';
+import Carrito from './Carrito';
+import Login from './Login';
+import Categorias from './Categorias';
+import { useAuth } from './AuthContext';
 import './App.css';
 
-function App(){
-  const [currentPage, setCurrentPage] = useState('login');
+function App() {
+  const { isLoggedIn, logout, isAdmin } = useAuth();
+  const [currentPage, setCurrentPage] = useState('inicio');
 
-  const menuItems = [
+  const publicMenuItems = [
     { label: 'Inicio', href: 'inicio' },
-    // 2. AÑADIR A LA LISTA DEL MENÚ
-    { label: 'Categorías', href: 'categorias' }, 
+    { label: 'Acerca de', href: 'acerca' },
+    { label: 'Productos', href: 'productos' },
+    { label: 'Login', href: 'login' },
+    { label: 'Sucursales', href: 'sucursales' },
+    { label: 'Contacto', href: 'contacto' },
+  ];
+
+  const privateMenuItems = [
+    { label: 'Inicio', href: 'inicio' },
+    { label: 'Categorias', href: 'categorias' },
     { label: 'Acerca de', href: 'acerca' },
     { label: 'Productos', href: 'productos' },
     { label: 'Contacto', href: 'contacto' },
     { label: 'Sucursales', href: 'sucursales' },
-    { label: 'Galerias', href: 'galerias' },
+    { label: 'Galeria', href: 'galerias' },
     { label: 'Usuarios', href: 'usuarios' },
     { label: 'Carrito', href: 'carrito' },
-    { label: 'Login', href: 'login' },
+    { label: 'Cerrar sesion', href: 'logout' }
   ];
 
+  const menuItems = isLoggedIn ? privateMenuItems : publicMenuItems;
+
+  useEffect(() => {
+    if (!isLoggedIn && ['categorias', 'usuarios', 'carrito', 'logout'].includes(currentPage)) {
+      setCurrentPage('inicio');
+    }
+  }, [isLoggedIn, currentPage]);
+
+  const handleMenuClick = (page) => {
+    if (page === 'logout') {
+      logout();
+      setCurrentPage('inicio');
+      return;
+    }
+
+    setCurrentPage(page);
+  };
+
   const renderPage = () => {
-    switch(currentPage) {
+    switch (currentPage) {
       case 'login':
-        return <Login />;
+        return <Login onLoginSuccess={() => setCurrentPage('inicio')} />;
       case 'inicio':
         return (
           <>
@@ -39,21 +66,20 @@ function App(){
             <Promociones />
           </>
         );
-      // 3. AGREGAR EL CASO 'categorias' PARA EL RENDERIZADO
       case 'categorias':
-        return <Categorias />;
+        return isAdmin ? <Categorias /> : <div className="page-content"><h2>Sin permiso</h2><p>Solo admin puede entrar a Categorias.</p></div>;
       case 'acerca':
         return <div className="page-content"><h2>Acerca de Nosotros</h2><p>Contenido sobre la empresa...</p></div>;
       case 'productos':
         return <Productos />;
       case 'contacto':
-        return <div className="page-content"><h2>Contacto</h2><p>Información de contacto...</p></div>;
+        return <div className="page-content"><h2>Contacto</h2><p>Informacion de contacto...</p></div>;
       case 'sucursales':
-        return <div className="page-content"><h2>Sucursales</h2><p>Ubicación de nuestras sucursales...</p></div>;
+        return <div className="page-content"><h2>Sucursales</h2><p>Ubicacion de nuestras sucursales...</p></div>;
       case 'galerias':
-        return <div className="page-content"><h2>Galerías</h2><p>Galería de fotos...</p></div>;
+        return <div className="page-content"><h2>Galerias</h2><p>Galeria de fotos...</p></div>;
       case 'usuarios':
-        return <Usuarios />;
+        return isAdmin ? <Usuarios /> : <div className="page-content"><h2>Sin permiso</h2><p>Solo admin puede entrar a Usuarios.</p></div>;
       case 'carrito':
         return <Carrito />;
       default:
@@ -61,10 +87,10 @@ function App(){
     }
   };
 
-  return ( 
-    <div className="app-container"> 
+  return (
+    <div className="app-container">
       <div className="app-content">
-        <Encabezado menuItems={menuItems} onMenuClick={setCurrentPage} currentPage={currentPage} />
+        <Encabezado menuItems={menuItems} onMenuClick={handleMenuClick} currentPage={currentPage} />
         {renderPage()}
       </div>
       <Pie />
